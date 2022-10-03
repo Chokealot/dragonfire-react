@@ -13,19 +13,20 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import { Link } from 'react-router-dom';
 
-const pages = ['Dashboard', 'Checklists'];
-const settings = ['Profile', 'Achivements', 'Logout'];
+type IAppBar = {
+  routes: string[],
+  profileMenuItems: string[],
+}
+const ResponsiveAppBar = (props: IAppBar) => {
+  const { routes, profileMenuItems } = props;
 
-const ResponsiveAppBar = () => {
-
-
-    const [ selectedOptionNavMenu, setSelectedOptionNavMenu ] = React.useState<any| undefined>()
-    const [ selectedOptionUserMenu, setSelectedOptionUserMenu ] = React.useState<any | undefined>()
-    const [ totalAchivementPoints, setTotalAchivementpoints ] = React.useState<any | undefined>(0)
-        
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const [ selectedOptionNavMenu, setSelectedOptionNavMenu ] = React.useState<any| undefined>()
+  const [ selectedOptionUserMenu, setSelectedOptionUserMenu ] = React.useState<any | undefined>()
+  const [ totalAchivementPoints, setTotalAchivementpoints ] = React.useState<any | undefined>(0)
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
@@ -98,8 +99,8 @@ const ResponsiveAppBar = () => {
                     display: { xs: 'block', md: 'none' },
                 }}
                 >
-                {pages.map((page) => (
-                    <MenuItem key={page} onClick={e => handleCloseNavMenu(e.currentTarget.textContent)}>
+                {routes.map((page) => (
+                    <MenuItem key={page} onClick={e => handleCloseNavMenu(e?.currentTarget?.textContent ?? "")}>
                     <Typography textAlign="center">{page}</Typography>
                     </MenuItem>
                 ))}
@@ -125,10 +126,10 @@ const ResponsiveAppBar = () => {
                 Dragonfire
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                {pages.map((page) => (
+                {routes.map((page) => (
                 <Button
                     key={page}
-                    onClick={e => handleCloseNavMenu(e.currentTarget.textContent)}
+                    onClick={e => handleCloseNavMenu(e?.currentTarget?.textContent ?? "")}
                     sx={{ my: 2, color: 'white', display: 'block' }}
                 >
                     {page}
@@ -169,8 +170,8 @@ const ResponsiveAppBar = () => {
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
                 >
-                {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={e => handleCloseUserMenu(e.currentTarget.textContent)}>
+                {profileMenuItems.map((setting) => (
+                    <MenuItem key={setting} onClick={e => handleCloseUserMenu(e?.currentTarget?.textContent ?? "")}>
                     <Typography textAlign="center">{setting}</Typography>
                     </MenuItem>
                 ))}
