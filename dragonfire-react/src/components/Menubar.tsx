@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import DragonFireLogo from './../assets/DragonFireLogo.svg';
 import { Link } from 'react-router-dom';
 
 type IAppBar = {
@@ -51,24 +52,12 @@ const ResponsiveAppBar = (props: IAppBar) => {
         <AppBar position="static">
         <Container maxWidth="xl">
             <Toolbar disableGutters>
-            <AccessibleForwardIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1,  }} />
-            <Typography
-                variant="h6"
-                noWrap
-                component="a"
-                href="/"
-                sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-                }}
-            >
-                Dragonfire
-            </Typography>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} >
+                <img
+                src={DragonFireLogo}
+                alt="DragonFire Logo"
+                />
+            </Box>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                 <IconButton
@@ -106,25 +95,18 @@ const ResponsiveAppBar = (props: IAppBar) => {
                 ))}
                 </Menu>
             </Box>
-            <AccessibleForwardIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-            <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href=""
-                sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-                }}
-            >
-                Dragonfire
-            </Typography>
+            <Box sx={{
+              display: { xs: 'flex', md: 'none' },
+              mr: 1,
+              flexGrow: 1,
+              justifyContent: 'center',
+            }}
+              >
+                <img
+                src={DragonFireLogo}
+                alt="DragonFire Logo"
+                />
+            </Box>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {routes.map((page) => (
                 <Button
