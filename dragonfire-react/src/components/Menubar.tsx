@@ -11,17 +11,18 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import AccessibleForwardIcon from '@mui/icons-material/AccessibleForward';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
-const pages = ['Dashboard', 'Checklists', 'Projects'];
-const settings = ['Profile', 'Logout'];
+const pages = ['Dashboard', 'Checklists'];
+const settings = ['Profile', 'Achivements', 'Logout'];
 
 const ResponsiveAppBar = () => {
 
 
     const [ selectedOptionNavMenu, setSelectedOptionNavMenu ] = React.useState<any| undefined>()
     const [ selectedOptionUserMenu, setSelectedOptionUserMenu ] = React.useState<any | undefined>()
+    const [ totalAchivementPoints, setTotalAchivementpoints ] = React.useState<any | undefined>(0)
         
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -133,6 +134,17 @@ const ResponsiveAppBar = () => {
                     {page}
                 </Button>
                 ))}
+            </Box>
+
+            <Box sx={{ 
+                mr: 4,
+                p: 1,
+                display: "inline-flex"
+                }} >
+                <EmojiEventsIcon />
+                <Typography sx={{ ml: 1 }}>
+                    { totalAchivementPoints } 
+                </Typography>
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
