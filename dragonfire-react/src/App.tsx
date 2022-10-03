@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Menubar />
-      <img ref={useRef("/assets/SmartCraft_Logo.jpg")} />
+
     </div>
   );
 }
