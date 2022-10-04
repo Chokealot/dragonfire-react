@@ -6,7 +6,6 @@ import { Routes, Route } from 'react-router-dom';
 import { ACHIEVEMENTSROUTE, APPLICATIONSROUTE, CHECKLISTSROUTE } from './routes/AppRoutes';
 import React from 'react';
 import { Button } from '@mui/material';
-import Player from './components/Audioplayer';
 import kaching from './assets/kaching.mp3';
 
 const AppRoutes = lazy(() => import('./routes/AppRoutes'));

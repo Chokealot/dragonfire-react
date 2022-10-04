@@ -6,21 +6,19 @@ import { SnackbarContent } from '@mui/material';
 type IProps = {
     achivement: string
     open: boolean,
+    setOpen?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export default function SimpleSnackbar(props: IProps) {
 
-  let { achivement, open } = props
+  const { achivement, open, setOpen } = props
 
-  const handleClick = () => {
-    open = true
-  };
 
   const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }
-    open = false
+    setOpen?.((old) => !old);
   };
 
   const action = (
