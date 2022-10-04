@@ -36,8 +36,9 @@ const ResponsiveAppBar = (props: IAppBar) => {
     }
 
     const frameType = () => {
-        if (totalAchievementPoints < 100) return "avatar-ring bronze"
-        if (totalAchievementPoints < 200) return "avatar-ring silver"
+        if (totalAchievementPoints === 0 ) return ""
+        if (totalAchievementPoints > 0 && totalAchievementPoints < 100) return "avatar-ring bronze"
+        if (totalAchievementPoints > 100 && totalAchievementPoints < 200) return "avatar-ring silver"
         return "avatar-ring gold"
     }
 
