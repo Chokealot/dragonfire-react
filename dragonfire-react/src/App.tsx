@@ -69,10 +69,9 @@ function App() {
     if (open === true) {
       setOpen(false)
       setPlayAudio(false)
-      setAchivement("")
     } else if (open === false) {
       setOpen(true)
-      setAchivement("Insert data for achivement here")
+      setAchivement("You have earned a new achivement!")
       setPlayAudio(true)
     }
   }
