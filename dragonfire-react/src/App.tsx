@@ -23,7 +23,7 @@ function App() {
       <Menubar routes={routePages} profileMenuItems={profileMenuItems} totalAchievementPoints={totalAchievementPoints}/>
       <Suspense>
           <Routes>
-            <Route path="/*" element={<AppRoutes />} />
+            <Route path="/*" element={<AppRoutes setTotalAchievementPoints={setTotalAchievementPoints} />} />
           </Routes>
       </Suspense>
     </div>
