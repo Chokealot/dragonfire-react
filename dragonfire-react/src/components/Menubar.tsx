@@ -13,6 +13,7 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import DragonFireLogo from './../assets/DragonFireLogo.svg';
 import { useNavigate } from 'react-router-dom';
 import Diamond from './../assets/diamond.svg';
+import AnimatedNumbers from "react-animated-numbers";
 
 type IAppBar = {
   routes: string[],
@@ -73,7 +74,9 @@ const ResponsiveAppBar = (props: IAppBar) => {
                 }} >
                 <EmojiEventsIcon />
                 <Typography sx={{ ml: 1 }}>
-                    { totalAchievementPoints } 
+                    <AnimatedNumbers
+                        animateToNumber={totalAchievementPoints}
+                    ></AnimatedNumbers>
                 </Typography>
             </Box>
 
