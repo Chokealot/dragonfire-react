@@ -13,7 +13,7 @@ const Checklists = () => {
         },
         {
             name: "Checklists 3",
-            id: "achievement 3"
+            id: "Checklist 3"
         },
         {
             name: "Checklists 4",
