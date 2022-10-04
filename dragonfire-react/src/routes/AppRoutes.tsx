@@ -19,7 +19,7 @@ const AppRoutes = (props: IProps): ReactElement => {
           <Route index element={<Dashboard />} />
           <Route path={ACHIEVEMENTSROUTE + "/*"} element={<Achievements />} />
           <Route path={CHECKLISTSROUTE + "/*"} element={<Checklists setTotalAchievementPoints={setTotalAchievementPoints} />} />
-          <Route path={APPLICATIONSROUTE + "/*"} element={<Applications />} />
+          <Route path={APPLICATIONSROUTE + "/*"} element={<Applications setTotalAchievementPoints={setTotalAchievementPoints}/>} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Route>
       </Routes>
