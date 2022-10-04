@@ -9,16 +9,18 @@ export const ACHIEVEMENTSROUTE = "Achievements";
 export const CHECKLISTSROUTE = "Sjekklister";
 export const APPLICATIONSROUTE = "Soknader";
 type IProps = {
-  setTotalAchievementPoints: React.Dispatch<React.SetStateAction<number>>
+  setTotalAchievementPoints: React.Dispatch<React.SetStateAction<number>>,
+  sjekklister: any[],
+  setSjekklister: React.Dispatch<React.SetStateAction<any>>,
 }
 const AppRoutes = (props: IProps): ReactElement => {
-  const { setTotalAchievementPoints } = props;
+  const { setTotalAchievementPoints, sjekklister = [], setSjekklister } = props;
   return (
       <Routes>
         <Route path="/">
           <Route index element={<Dashboard />} />
-          <Route path={ACHIEVEMENTSROUTE + "/*"} element={<Achievements />} />
-          <Route path={CHECKLISTSROUTE + "/*"} element={<Checklists setTotalAchievementPoints={setTotalAchievementPoints} />} />
+          <Route path={ACHIEVEMENTSROUTE + "/*"} element={<Achievements sjekklister={sjekklister} setSjekklister={setSjekklister} />} />
+          <Route path={CHECKLISTSROUTE + "/*"} element={<Checklists setTotalAchievementPoints={setTotalAchievementPoints} setSjekklister={setSjekklister} />} />
           <Route path={APPLICATIONSROUTE + "/*"} element={<Applications setTotalAchievementPoints={setTotalAchievementPoints}/>} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Route>

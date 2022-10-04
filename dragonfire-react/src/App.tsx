@@ -10,8 +10,45 @@ import kaching from './assets/kaching.mp3';
 
 const AppRoutes = lazy(() => import('./routes/AppRoutes'));
 
+const sjekklisterAchievements = [
+  {
+      category: 'Sjekklister',
+      name: 'Opprette sjekkliste',
+      id: 4,
+      isComplete: false,
+      completedAt: null,
+      points: 50,
+  },
+  {
+      category: 'Sjekklister',
+      name: 'Fylle ut sjekkpunkt',
+      id: 5,
+      isComplete: false,
+      completedAt: null,
+      points: 20,
+  },
+  {
+      category: 'Sjekklister',
+      name: 'Kommentar på sjekkpunkt',
+      id: 6,
+      isComplete: false,
+      completedAt: null,
+      points: 10,
+  },
+  {
+      category: 'Sjekklister',
+      name: 'Lagt til bilde på sjekkliste',
+      id: 7,
+      isComplete: false,
+      completedAt: null,
+      points: 20,
+  },
+];
+
 function App() {
   const [ totalAchievementPoints, setTotalAchievementPoints ] = React.useState(0);
+  const [ sjekklister, setSjekklister ] = React.useState(sjekklisterAchievements);
+
   const routePages = [
     ACHIEVEMENTSROUTE,
     CHECKLISTSROUTE,
@@ -21,7 +58,7 @@ function App() {
   const [open, setOpen] = React.useState(false);
   const profileMenuItems = ['Profile', 'Account', 'Dashboard', 'Logout'];
   const [ achivement, setAchivement ] = React.useState<any | undefined>("Test Achivement")
-  const [ playAudio, setPlayAudio ] = React.useState<boolean>(false)
+  const [ playAudio, setPlayAudio ] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     new Audio(kaching).play()
@@ -47,7 +84,7 @@ function App() {
       <Button onClick={handleAchivement} > test </Button>
       <Suspense>
           <Routes>
-            <Route path="/*" element={<AppRoutes setTotalAchievementPoints={setTotalAchievementPoints} />} />
+            <Route path="/*" element={<AppRoutes setTotalAchievementPoints={setTotalAchievementPoints} sjekklister={sjekklister} setSjekklister={setSjekklister}/>} />
           </Routes>
       </Suspense>
     </div>

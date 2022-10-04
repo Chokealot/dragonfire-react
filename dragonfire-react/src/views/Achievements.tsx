@@ -1,15 +1,17 @@
-import { Avatar, List, ListItem, ListItemAvatar, ListItemText, TextField, Typography } from "@mui/material";
+import { Avatar, List, ListItem, ListItemAvatar, ListItemText, Typography } from "@mui/material";
 import WorkIcon from '@mui/icons-material/Work';
-import React from "react";
+import React, { useId } from "react";
 
-const Achievements = () => {
+const Achievements = (props: any) => {
+    const id = useId();
+    const {sjekklister = [] } = props;
 
     const bruk = [
         {
             category: 'Bruk',
             name: 'Førstegangs innlogging',
             id: 1,
-            isComplete: false,
+            isComplete: true,
             completedAt: '03. november 2020',
             points: 10,
         },
@@ -31,47 +33,13 @@ const Achievements = () => {
         },
     ];
 
-    const sjekklister = [
-        {
-            category: 'Sjekklister',
-            name: 'Opprette sjekkliste',
-            id: 4,
-            isComplete: false,
-            completedAt: null,
-            points: 50,
-        },
-        {
-            category: 'Sjekklister',
-            name: 'Fylle ut sjekkpunkt',
-            id: 5,
-            isComplete: false,
-            completedAt: null,
-            points: 20,
-        },
-        {
-            category: 'Sjekklister',
-            name: 'Kommentar på sjekkpunkt',
-            id: 6,
-            isComplete: false,
-            completedAt: null,
-            points: 10,
-        },
-        {
-            category: 'Sjekklister',
-            name: 'Lagt til bilde på sjekkliste',
-            id: 7,
-            isComplete: false,
-            completedAt: null,
-            points: 20,
-        },
-    ]
-
     const søknader = [
         {
         category: 'Søknader',
         name: 'Legg til søknad',
         id: 8,
         isComplete: false,
+        completedAt: null,
         points: 50,
     },
     {
@@ -79,8 +47,10 @@ const Achievements = () => {
         name: 'Sende inn søknad',
         id: 9,
         isComplete: false,
+        completedAt: null,
         points: 100,
     },];
+
     const prosjekt = [
         {
             category: 'Prosjekt',
@@ -115,6 +85,7 @@ const Achievements = () => {
             points: 30,
         },
     ];
+
     const produktregister = [
         {
             category: 'Produktregister',
@@ -125,6 +96,7 @@ const Achievements = () => {
             points: 150,
         },
     ];
+
     const prosedyrer = [
         {
             category: 'Håndbok/prosedyrer',
@@ -141,6 +113,7 @@ const Achievements = () => {
             points: 50,
         },
     ];
+
     const timeregistrering = [
         {
             category: 'Timeregistrering',
@@ -157,6 +130,7 @@ const Achievements = () => {
             points: 100,
         },
     ];
+
     return (
         <>
             <h1>Achievements</h1>
@@ -226,7 +200,8 @@ const Achievements = () => {
     )
 
     function createAchievementList(achievement: any): JSX.Element {
-        return <ListItem key={achievement.id}>
+        return (
+        <ListItem key={achievement.id + "-" + id}>
             <ListItemAvatar>
                 <Avatar sx={{ backgroundColor: achievement?.isComplete ? "#FFD700" : undefined }}>
                     <WorkIcon />
@@ -235,9 +210,10 @@ const Achievements = () => {
             <ListItemText
                 primary={achievement.name}
                 primaryTypographyProps={!achievement?.isComplete ? { color: "lightgrey" } : { fontWeight: "bold" }}
-                secondary="Jan 9, 2014"
+                secondary={achievement?.completedAt ?? null}
                 secondaryTypographyProps={!achievement?.isComplete ? { color: "lightgrey" } : {}} />
-        </ListItem>;
+        </ListItem>
+        )
     }
 };
 

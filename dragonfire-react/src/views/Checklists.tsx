@@ -1,12 +1,13 @@
 import { Avatar, Box, Button, Fab, List, ListItem, ListItemAvatar, ListItemText, Stack, Typography } from "@mui/material";
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import AddIcon from '@mui/icons-material/Add';
-import React from "react";
+import React, { useId } from "react";
 import DialogWrapper from "../components/DialogWrapper";
 import Checkbox from '@mui/material/Checkbox';
 
 type IProps = {
     setTotalAchievementPoints: React.Dispatch<React.SetStateAction<number>>,
+    setSjekklister: React.Dispatch<React.SetStateAction<any>>,
 }
 
 const defaultChecklists = [
@@ -33,12 +34,13 @@ const defaultChecklists = [
 ]
 
 const Checklists = (props: IProps) => {
-    const { setTotalAchievementPoints } = props;
+    const { setTotalAchievementPoints, setSjekklister } = props;
     const [ checklists, setChecklists ] = React.useState(defaultChecklists);
     const [ dialogOpen, setDialogOpen ] = React.useState(false);
     const pointsPerChecklist = 50;
     const pointsCompleteChecklist = 20;
     var dateOptions: Intl.DateTimeFormatOptions = { weekday: undefined, year: 'numeric', month: 'long', day: 'numeric' };
+    const id = useId();
 
     const handleAddChecklist = () => {
         setChecklists((old: any) => {
@@ -52,6 +54,23 @@ const Checklists = (props: IProps) => {
             ]
         })
         setTotalAchievementPoints((old: number) => old + pointsPerChecklist);
+        setSjekklister((old: any) => {
+            const newArray = old.map((sjekkliste: any) => {
+                let modified = {};
+                if (sjekkliste.id === 4) {
+                    modified = {
+                        ...sjekkliste,
+                        isComplete: true,
+                        completedAt: new Date(Date.now()).toLocaleDateString("nb-NO", dateOptions ),
+                    }
+                    return modified
+                }
+                else {
+                    return sjekkliste
+                }
+            })
+            return newArray;
+    });
     }
 
     const handleClickChecklist = (name: string) => {
@@ -67,7 +86,7 @@ const Checklists = (props: IProps) => {
             <List sx={{ width: '100%', height:"80%", bgcolor: 'background.paper' }}>
                 {
                     checklists.map((checklist: any) => (
-                            <ListItem key={checklist.id} onClick={() => handleClickChecklist(checklist.name)}>
+                            <ListItem key={checklist.id + "-" + id} onClick={() => handleClickChecklist(checklist.name)}>
                                 <ListItemAvatar>
                                     <Avatar>
                                         <FormatListBulletedIcon />
@@ -86,19 +105,19 @@ const Checklists = (props: IProps) => {
                         <Box padding={3}>
                             <h2>Sjekkliste</h2>
                             <List sx={{minHeight: 500}}>
-                                <Stack flexDirection={"row"} alignItems="center">
+                                <Stack key={"1"} flexDirection={"row"} alignItems="center">
                                     <Checkbox />
                                     <Typography>Har du husket å koble røret?</Typography>
                                 </Stack>
-                                <Stack flexDirection={"row"} alignItems="center">
+                                <Stack key={"2"} flexDirection={"row"} alignItems="center">
                                     <Checkbox />
                                     <Typography>Er smittevernsregler fulgt?</Typography>
                                 </Stack>
-                                <Stack flexDirection={"row"} alignItems="center">
+                                <Stack key={"3"} flexDirection={"row"} alignItems="center">
                                     <Checkbox />
                                     <Typography>Er etterkontrol utført?</Typography>
                                 </Stack>
-                                <Stack flexDirection={"row"} alignItems="center">
+                                <Stack key={"4"} flexDirection={"row"} alignItems="center">
                                     <Checkbox />
                                     <Typography>Avviksmelding utfylt?</Typography>
                                 </Stack>
