@@ -78,7 +78,7 @@ const Checklists = (props: IProps) => {
                     ))
                 }
             </List>
-            <Fab sx={{right: 0, position: "fixed", mr: 2}} color="primary" aria-label="add" onClick={handleAddChecklist}>
+            <Fab sx={{right: 0, bottom: 0, position: "fixed", m: 4}} color="primary" aria-label="add" onClick={handleAddChecklist}>
                 <AddIcon />
             </Fab>
             { dialogOpen && (
