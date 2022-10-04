@@ -1,7 +1,7 @@
 import './App.css';
 import Menubar from './components/Menubar';
 import AchivementSnackbar from './components/AchivementSnackbar';
-import { lazy, Suspense, useState } from 'react';
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ACHIEVEMENTSROUTE, APPLICATIONSROUTE, CHECKLISTSROUTE } from './routes/AppRoutes';
 import React from 'react';
