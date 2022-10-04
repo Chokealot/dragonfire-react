@@ -45,11 +45,11 @@ const Checklists = (props: IProps) => {
     }
 
     return (
-        <Box sx={{width: "100%"}}>
+        <Box sx={{width: "100%", height: "100vh"}}>
             <h1>
                 Checklists
             </h1>
-            <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+            <List sx={{ width: '100%', height:"80%", bgcolor: 'background.paper' }}>
                 {
                     checklists.map((checklist: any) => (
                             <ListItem key={checklist.id}>
@@ -63,7 +63,7 @@ const Checklists = (props: IProps) => {
                     ))
                 }
             </List>
-            <Fab color="primary" aria-label="add" onClick={handleAddChecklist}>
+            <Fab sx={{right: 0, position: "fixed", mr: 2}} color="primary" aria-label="add" onClick={handleAddChecklist}>
                 <AddIcon />
             </Fab>
         </Box>
