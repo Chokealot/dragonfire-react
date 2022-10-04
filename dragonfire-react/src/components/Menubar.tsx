@@ -12,6 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import DragonFireLogo from './../assets/DragonFireLogo.svg';
 import { useNavigate } from 'react-router-dom';
+import Diamond from './../assets/diamond.svg';
 
 type IAppBar = {
   routes: string[],
@@ -38,7 +39,7 @@ const ResponsiveAppBar = (props: IAppBar) => {
     return (
         <AppBar position="static">
         <Container maxWidth="xl">
-            <Toolbar disableGutters>
+            <Toolbar sx={{ height: 128 }} disableGutters>
             <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} >
                 <img
                 src={DragonFireLogo}
@@ -78,9 +79,14 @@ const ResponsiveAppBar = (props: IAppBar) => {
 
             <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
+                    <div className="avatar-wrapper">
+                        <img className="avatar-diamond" src={Diamond} alt="diamond" />
+                        <div className="avatar-ring gold">
+                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                            </IconButton>
+                        </div>
+                    </div>
                 </Tooltip>
                 <Menu
                 sx={{ mt: '45px' }}

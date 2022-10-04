@@ -27,6 +27,38 @@
 .App-link {
   color: #61dafb;
 }
+.avatar-wrapper {
+  position: relative;
+}
+
+.avatar-ring {
+  position: relative;
+  border-radius: 50%;
+  padding: .5em;
+  background-color: gray;
+  z-index: 10;
+}
+
+.avatar-ring.bronze {
+  background: linear-gradient(147.33deg, #A54930 11.26%, #FBB985 34.47%, #A54930 50.22%, #FBB985 69.28%, #A54930 86.27%);
+}
+
+.avatar-ring.silver {
+  background: linear-gradient(147.33deg, #ADADAD 22.45%, #FFFFFF 36.13%, #989898 53.53%, #FFFFFF 69.28%, #8C8C8C 84.2%);
+}
+
+.avatar-ring.gold {
+  background: linear-gradient(147.33deg, #A46A01 22.45%, #FCE072 36.13%, #915A01 53.53%, #FDC800 69.28%, #915A00 84.2%);
+}
+
+.avatar-diamond {
+  position: absolute;
+  top: -20px;
+  left: 15px;
+  z-index: 5;
+  height: 24px;
+  width: auto;
+}
 
 @keyframes App-logo-spin {
   from {
