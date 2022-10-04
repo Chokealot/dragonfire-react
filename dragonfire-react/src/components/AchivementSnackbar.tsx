@@ -1,8 +1,7 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import { SnackbarContent } from '@mui/material';
 
 type IProps = {
     achivement: string
@@ -24,17 +23,9 @@ export default function SimpleSnackbar(props: IProps) {
 
   const action = (
     <React.Fragment>
-      <Button color="secondary" size="small" onClick={handleClose}>
-        Open Achivementlist
+      <Button sx={{color: "black"}} size="small" onClick={handleClose}>
+        Close
       </Button>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleClose}
-      >
-        <CloseIcon fontSize="small" />
-      </IconButton>
     </React.Fragment>
   );
 
@@ -44,9 +35,12 @@ export default function SimpleSnackbar(props: IProps) {
         open={open}
         autoHideDuration={6000}
         onClose={handleClose}
-        message={achivement}
         action={action}
-      />
+        color={"#FFD700"}
+        sx={{ background: "#FFD700" }}
+      >
+        <SnackbarContent style={{ background: "#FFD700", color: "black" }} message={achivement} />
+      </Snackbar>
     </div>
   );
 }

@@ -9,7 +9,8 @@ const Achievements = () => {
             category: 'Bruk',
             name: 'Førstegangs innlogging',
             id: 1,
-            isComplete: true,
+            isComplete: false,
+            completedAt: '03. november 2020',
             points: 10,
         },
         {
@@ -17,6 +18,7 @@ const Achievements = () => {
             name: 'Aktiv fem dager på rad',
             id: 2,
             isComplete: false,
+            completedAt: null,
             points: 100,
         },
         {
@@ -24,6 +26,7 @@ const Achievements = () => {
             name: 'Aktiv 20 dager sist måned',
             id: 3,
             isComplete: false,
+            completedAt: null,
             points: 200,
         },
     ];
@@ -34,6 +37,7 @@ const Achievements = () => {
             name: 'Opprette sjekkliste',
             id: 4,
             isComplete: false,
+            completedAt: null,
             points: 50,
         },
         {
@@ -41,6 +45,7 @@ const Achievements = () => {
             name: 'Fylle ut sjekkpunkt',
             id: 5,
             isComplete: false,
+            completedAt: null,
             points: 20,
         },
         {
@@ -48,6 +53,7 @@ const Achievements = () => {
             name: 'Kommentar på sjekkpunkt',
             id: 6,
             isComplete: false,
+            completedAt: null,
             points: 10,
         },
         {
@@ -55,6 +61,7 @@ const Achievements = () => {
             name: 'Lagt til bilde på sjekkliste',
             id: 7,
             isComplete: false,
+            completedAt: null,
             points: 20,
         },
     ]
@@ -80,6 +87,7 @@ const Achievements = () => {
             name: 'Lagt inn full adresse',
             id: 14,
             isComplete: false,
+            completedAt: '15. november 2020',
             points: 30,
         },
         {
@@ -87,6 +95,7 @@ const Achievements = () => {
             name: 'Valgt kunde',
             id: 15,
             isComplete: false,
+            completedAt: '15. november 2020',
             points: 20,
         },
         {
@@ -94,6 +103,7 @@ const Achievements = () => {
             name: 'Valgt prosjektleder',
             id: 16,
             isComplete: false,
+            completedAt: '16. november 2020',
             points: 20,
         },
         {
@@ -101,6 +111,7 @@ const Achievements = () => {
             name: 'Alle tre over',
             id: 17,
             isComplete: false,
+            completedAt: null,
             points: 30,
         },
     ];
@@ -110,6 +121,7 @@ const Achievements = () => {
             name: 'Importer nye priser',
             id: 18,
             isComplete: false,
+            completedAt: null,
             points: 150,
         },
     ];
