@@ -31,6 +31,16 @@ const ResponsiveAppBar = (props: IAppBar) => {
         setAnchorElUser(event.currentTarget);
     };
 
+    const hideDiamond = () => {
+        return totalAchievementPoints < 400;
+    }
+
+    const frameType = () => {
+        if (totalAchievementPoints < 100) return "avatar-ring bronze"
+        if (totalAchievementPoints < 200) return "avatar-ring silver"
+        return "avatar-ring gold"
+    }
+
     const handleCloseUserMenu = (selectedOption: string) => {
         setSelectedOptionUserMenu(selectedOption)
         console.log("In handleUSERClose", selectedOptionUserMenu)
@@ -85,8 +95,8 @@ const ResponsiveAppBar = (props: IAppBar) => {
             <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                     <div className="avatar-wrapper">
-                        <img className="avatar-diamond" src={Diamond} alt="diamond" />
-                        <div className="avatar-ring gold">
+                        <img className="avatar-diamond" src={Diamond} alt="diamond" hidden={hideDiamond()} />
+                        <div className={frameType()}>
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                             </IconButton>
