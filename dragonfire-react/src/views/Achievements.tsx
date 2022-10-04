@@ -1,5 +1,6 @@
-import { Avatar, List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
+import { Avatar, Box, Container, IconButton, List, ListItem, ListItemAvatar, ListItemText, Stack } from "@mui/material";
 import WorkIcon from '@mui/icons-material/Work';
+import Diamond from './../assets/diamond.svg';
 
 const Achievements = () => {
     const achievementsList = [
@@ -153,6 +154,48 @@ const Achievements = () => {
             <h1>
                 Achievements view
             </h1>
+            <Container maxWidth="xl">
+            <Stack flexDirection={"row"} sx={{justifyContent: "center"}}>
+            <Box sx={{ flexGrow: 0 }}>
+                <div className="avatar-wrapper">
+                    <div className={"avatar-ring bronze"}>
+                        <IconButton sx={{ p: 0 }}>
+                            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                        </IconButton>
+                    </div>
+                </div>
+            </Box>
+            <Box sx={{ flexGrow: 0 }}>
+            <div className="avatar-wrapper">
+                <div className={"avatar-ring silver"}>
+                    <IconButton sx={{ p: 0 }}>
+                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                    </IconButton>
+                </div>
+            </div>
+            </Box>
+            <Box sx={{ flexGrow: 0 }}>
+            <div className="avatar-wrapper">
+                <div className={"avatar-ring gold"}>
+                    <IconButton sx={{ p: 0 }}>
+                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                    </IconButton>
+                </div>
+            </div>
+            </Box>
+            <Box sx={{ flexGrow: 0 }}>
+            <div className="avatar-wrapper">
+                <img className="avatar-diamond" src={Diamond} alt="diamond"/>
+                <div className={"avatar-ring gold"}>
+                    <IconButton sx={{ p: 0 }}>
+                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                    </IconButton>
+                </div>
+            </div>
+            </Box>
+            </Stack>
+            </Container>
+
             <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
                 {
                     achievementsList.map((achievement: any) => (
