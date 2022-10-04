@@ -4,20 +4,130 @@ import WorkIcon from '@mui/icons-material/Work';
 const Achievements = () => {
     const achievementsList = [
         {
-            name: "achievement 1",
-            id: "achievement 1"
+            category: 'Bruk',
+            name: 'Førstegangs innlogging',
+            id: 1,
+            isComplete: false,
+            points: 10,
         },
         {
-            name: "achievement 2",
-            id: "achievement 2"
+            category: 'Bruk',
+            name: 'Aktiv fem dager på rad',
+            id: 2,
+            isComplete: false,
+            points: 100,
         },
         {
-            name: "achievement 3",
-            id: "achievement 3"
+            category: 'Bruk',
+            name: 'Aktiv 20 dager sist måned',
+            id: 3,
+            isComplete: false,
+            points: 200,
         },
         {
-            name: "achievement 4",
-            id: "achievement 4"
+            category: 'Sjekklister',
+            name: 'Opprette sjekkliste',
+            id: 4,
+            isComplete: false,
+            points: 50,
+        },
+        {
+            category: 'Sjekklister',
+            name: 'Fylle ut sjekkpunkt',
+            id: 5,
+            isComplete: false,
+            points: 20,
+        },
+        {
+            category: 'Sjekklister',
+            name: 'Kommentar på sjekkpunkt',
+            id: 6,
+            isComplete: false,
+            points: 10,
+        },
+        {
+            category: 'Sjekklister',
+            name: 'Lagt til bilde på sjekkliste',
+            id: 7,
+            isComplete: false,
+            points: 20,
+        },
+        {
+            category: 'Søknader',
+            name: 'Legg til søknad',
+            id: 8,
+            isComplete: false,
+            points: 50,
+        },
+        {
+            category: 'Søknader',
+            name: 'Sende inn søknad',
+            id: 9,
+            isComplete: false,
+            points: 100,
+        },
+        {
+            category: 'Timeregistrering',
+            name: 'Registrere samme dag',
+            id: 10,
+            isComplete: false,
+            points: 50,
+        },
+        {
+            category: 'Timeregistrering',
+            name: 'Registerer samme dag, 5 dager på rad',
+            id: 11,
+            isComplete: false,
+            points: 100,
+        },
+        {
+            category: 'Håndbok/prosedyrer',
+            name: 'Opprettet',
+            id: 12,
+            isComplete: false,
+            points: 100,
+        },
+        {
+            category: 'Håndbok/prosedyrer',
+            name: 'Lest',
+            id: 13,
+            isComplete: false,
+            points: 50,
+        },
+        {
+            category: 'Prosjekt',
+            name: 'Lagt inn full adresse',
+            id: 14,
+            isComplete: false,
+            points: 30,
+        },
+        {
+            category: 'Prosjekt',
+            name: 'Valgt kunde',
+            id: 15,
+            isComplete: false,
+            points: 20,
+        },
+        {
+            category: 'Prosjekt',
+            name: 'Valgt prosjektleder',
+            id: 16,
+            isComplete: false,
+            points: 20,
+        },
+        {
+            category: 'Prosjekt',
+            name: 'Alle tre over',
+            id: 17,
+            isComplete: false,
+            points: 30,
+        },
+        {
+            category: 'Produktregister',
+            name: 'Importer nye priser',
+            id: 18,
+            isComplete: false,
+            points: 150,
         },
     ]
     return (
