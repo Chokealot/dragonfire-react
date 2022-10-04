@@ -1,43 +1,54 @@
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref,
-) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+type IProps = {
+    achivement: string
+    open: boolean,
+}
 
-export default function AchivementSnackbar(handleSnackbar: boolean) {
+export default function SimpleSnackbar(props: IProps) {
 
-    
-    const [ achivement, setAchivement ] = React.useState<any>("Default Achivement Message")
-    
-    const [open, setOpen] = React.useState(false);
-    
-    const handleClick = (value: boolean) => {
-        setOpen(value);
-    };
-    
-    const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-        
-        setOpen(false);
-    };
-    
-    return (
-        <Stack spacing={2} sx={{ width: '100%' }}>
-        
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-            <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                { achivement }
-            </Alert>
-        </Snackbar>
-        </Stack>
-    );
+  const { achivement, open } = props
+
+  const handleClick = () => {
+    open
+  };
+
+  const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    open
+  };
+
+  const action = (
+    <React.Fragment>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        Open Achivementlist
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
+
+  return (
+    <div>
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message={achivement}
+        action={action}
+      />
+    </div>
+  );
 }
