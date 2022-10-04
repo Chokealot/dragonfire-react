@@ -37,7 +37,7 @@ const ResponsiveAppBar = (props: IAppBar) => {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="sticky">
         <Container maxWidth="xl">
             <Toolbar sx={{ height: 128 }} disableGutters>
             <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} >
