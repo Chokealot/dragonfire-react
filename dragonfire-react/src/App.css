@@ -60,6 +60,11 @@
   width: auto;
 }
 
+.main-logo {
+  height: 5em;
+  width: auto;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
