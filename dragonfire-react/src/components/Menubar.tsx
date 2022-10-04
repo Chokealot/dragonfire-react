@@ -13,7 +13,7 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import DragonFireLogo from './../assets/DragonFireLogo.svg';
 import { useNavigate } from 'react-router-dom';
 import Diamond from './../assets/diamond.svg';
-import AnimatedNumbers from "react-animated-numbers";
+import AnimatedNumbers from 'react-animated-numbers';
 
 type IAppBar = {
   routes: string[],
@@ -67,7 +67,7 @@ const ResponsiveAppBar = (props: IAppBar) => {
                 ))}
             </Box>
 
-            <Box sx={{ 
+            <Box sx={{
                 mr: 4,
                 p: 1,
                 display: "inline-flex"
