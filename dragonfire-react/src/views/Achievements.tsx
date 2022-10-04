@@ -137,44 +137,59 @@ const Achievements = (props: any) => {
             <h1>Achievements</h1>
 
             <Container maxWidth="xl">
-            <Stack flexDirection={"row"} sx={{justifyContent: "center"}}>
-            <Box sx={{ flexGrow: 0 }}>
+            <Stack flexDirection={"row"} sx={{justifyContent: "center"}} gap={9}>
+                <Stack flexDirection={"column"} sx={{justifyContent: "center"}}>
+                    <Box sx={{ flexGrow: 0 }}>
+                        <div className="avatar-wrapper">
+                            <div className={"avatar-ring bronze"}>
+                                <IconButton sx={{ p: 0 }}>
+                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                </IconButton>
+                            </div>
+                        </div>
+                    </Box>
+                    <Typography variant="caption">100 - 200</Typography>
+                </Stack>
+
+                <Stack flexDirection={"column"} sx={{justifyContent: "center"}}>
+                <Box sx={{ flexGrow: 0 }}>
                 <div className="avatar-wrapper">
-                    <div className={"avatar-ring bronze"}>
+                    <div className={"avatar-ring silver"}>
                         <IconButton sx={{ p: 0 }}>
                             <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                         </IconButton>
                     </div>
                 </div>
-            </Box>
-            <Box sx={{ flexGrow: 0 }}>
-            <div className="avatar-wrapper">
-                <div className={"avatar-ring silver"}>
-                    <IconButton sx={{ p: 0 }}>
-                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                    </IconButton>
+                </Box>
+                <Typography variant="caption">200 - 300</Typography>
+                </Stack>
+
+                <Stack flexDirection={"column"} sx={{justifyContent: "center"}}>
+                <Box sx={{ flexGrow: 0 }}>
+                <div className="avatar-wrapper">
+                    <div className={"avatar-ring gold"}>
+                        <IconButton sx={{ p: 0 }}>
+                            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                        </IconButton>
+                    </div>
                 </div>
-            </div>
-            </Box>
-            <Box sx={{ flexGrow: 0 }}>
-            <div className="avatar-wrapper">
-                <div className={"avatar-ring gold"}>
-                    <IconButton sx={{ p: 0 }}>
-                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                    </IconButton>
-                </div>
-            </div>
-            </Box>
-            <Box sx={{ flexGrow: 0 }}>
-            <div className="avatar-wrapper">
-                <img className="avatar-diamond" src={Diamond} alt="diamond"/>
-                <div className={"avatar-ring gold"}>
-                    <IconButton sx={{ p: 0 }}>
-                        <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                    </IconButton>
-                </div>
-            </div>
-            </Box>
+                </Box>
+                <Typography variant="caption">300 - 400</Typography>
+                </Stack>
+
+                <Stack flexDirection={"column"} sx={{justifyContent: "center"}}>
+                    <Box sx={{ flexGrow: 0 }}>
+                    <div className="avatar-wrapper">
+                        <img className="avatar-diamond" src={Diamond} alt="diamond"/>
+                        <div className={"avatar-ring gold"}>
+                            <IconButton sx={{ p: 0 }}>
+                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                            </IconButton>
+                        </div>
+                    </div>
+                    </Box>
+                    <Typography variant="caption">500 - 600</Typography>
+                </Stack>
             </Stack>
             </Container>
 
