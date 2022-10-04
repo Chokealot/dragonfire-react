@@ -1,9 +1,11 @@
-import { Avatar, Box, Button, Fab, List, ListItem, ListItemAvatar, ListItemText, Stack, Typography } from "@mui/material";
+import { Avatar, Box, Button, Fab, List, ListItem, ListItemAvatar, ListItemText, SnackbarContent, Stack, Typography } from "@mui/material";
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import AddIcon from '@mui/icons-material/Add';
 import React, { useId } from "react";
 import DialogWrapper from "../components/DialogWrapper";
 import Checkbox from '@mui/material/Checkbox';
+import kaching from '../assets/kaching.mp3';
+import { Snackbar } from '@mui/material';
 
 type IProps = {
     setTotalAchievementPoints: React.Dispatch<React.SetStateAction<number>>,
@@ -37,10 +39,18 @@ const Checklists = (props: IProps) => {
     const { setTotalAchievementPoints, setSjekklister } = props;
     const [ checklists, setChecklists ] = React.useState(defaultChecklists);
     const [ dialogOpen, setDialogOpen ] = React.useState(false);
+    const [ openSnackbar, setOpenSnackbar ] = React.useState(false);
+    const [ type, setType ] = React.useState("");
     const pointsPerChecklist = 50;
     const pointsCompleteChecklist = 20;
     var dateOptions: Intl.DateTimeFormatOptions = { weekday: undefined, year: 'numeric', month: 'long', day: 'numeric' };
     const id = useId();
+
+    React.useEffect(() => {
+        if (openSnackbar) {
+            new Audio(kaching).play()
+        }
+    }, [openSnackbar]);
 
     const handleAddChecklist = () => {
         setChecklists((old: any) => {
@@ -71,6 +81,9 @@ const Checklists = (props: IProps) => {
             })
             return newArray;
     });
+        setType("Created new checklist");
+
+        setOpenSnackbar(true);
     }
 
     const handleClickChecklist = (name: string) => {
@@ -127,11 +140,22 @@ const Checklists = (props: IProps) => {
                                 <Button variant="contained" onClick={() => {
                                     setDialogOpen(false)
                                     setTotalAchievementPoints((old: number) => old + pointsCompleteChecklist)
+                                    setType("Completed checklist");
+                                    setOpenSnackbar(true);
                                     }
                                 }>Fullfør</Button>
                             </Stack>
                         </Box>
                 </DialogWrapper>
+            )}
+            { openSnackbar && (
+                <Snackbar
+                open={openSnackbar}
+                autoHideDuration={2000}
+                onClose={()=> setOpenSnackbar(false)}
+                message="Achievement unlocked: Created new checklist!"
+                action={undefined}
+              ><SnackbarContent sx={{color: "black", backgroundColor: "gold"}} message={`Achievement unlocked: ${type}`} /></Snackbar>
             )}
         </Box>
     )
