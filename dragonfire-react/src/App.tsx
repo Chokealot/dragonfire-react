@@ -3,7 +3,7 @@ import Menubar from './components/Menubar';
 import AchivementSnackbar from './components/AchivementSnackbar';
 import { lazy, Suspense, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { ACHIEVEMENTSROUTE, CHECKLISTSROUTE } from './routes/AppRoutes';
+import { ACHIEVEMENTSROUTE, APPLICATIONSROUTE, CHECKLISTSROUTE } from './routes/AppRoutes';
 import React from 'react';
 
 const AppRoutes = lazy(() => import('./routes/AppRoutes'));
@@ -13,7 +13,7 @@ function App() {
   const routePages = [
     ACHIEVEMENTSROUTE,
     CHECKLISTSROUTE,
-    'Søknader'
+    APPLICATIONSROUTE
   ];
 
   const profileMenuItems = ['Profile', 'Account', 'Dashboard', 'Logout'];
