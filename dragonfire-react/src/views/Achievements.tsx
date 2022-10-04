@@ -7,7 +7,7 @@ const Achievements = () => {
             category: 'Bruk',
             name: 'Førstegangs innlogging',
             id: 1,
-            isComplete: false,
+            isComplete: true,
             points: 10,
         },
         {
@@ -140,11 +140,16 @@ const Achievements = () => {
                     achievementsList.map((achievement: any) => (
                             <ListItem key={achievement.id}>
                                 <ListItemAvatar>
-                                    <Avatar>
+                                    <Avatar sx={{ backgroundColor: achievement?.isComplete ? "#FFD700" : undefined}}>
                                         <WorkIcon />
                                     </Avatar>
                                 </ListItemAvatar>
-                            <ListItemText primary={achievement.name} secondary="Jan 9, 2014" />
+                            <ListItemText
+                                primary={achievement.name}
+                                primaryTypographyProps={!achievement?.isComplete ? {color: "lightgrey"} : {fontWeight: "bold"}}
+                                secondary="Jan 9, 2014"
+                                secondaryTypographyProps={!achievement?.isComplete ? {color: "lightgrey"} : {}}
+                            />
                         </ListItem>
                     ))
                 }
