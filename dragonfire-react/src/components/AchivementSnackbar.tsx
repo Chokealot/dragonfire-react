@@ -23,7 +23,7 @@ export default function SimpleSnackbar(props: IProps) {
 
   const action = (
     <React.Fragment>
-      <Button color="black" size="small" onClick={handleClose}>
+      <Button size="small" onClick={handleClose}>
         Close
       </Button>
     </React.Fragment>
