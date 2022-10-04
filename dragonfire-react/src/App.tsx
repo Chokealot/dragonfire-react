@@ -7,6 +7,7 @@ import { ACHIEVEMENTSROUTE, APPLICATIONSROUTE, CHECKLISTSROUTE } from './routes/
 import React from 'react';
 import { Button } from '@mui/material';
 import Player from './components/Audioplayer';
+import kaching from './assets/kaching.mp3';
 
 const AppRoutes = lazy(() => import('./routes/AppRoutes'));
 
@@ -35,7 +36,7 @@ function App() {
       <Menubar routes={routePages} profileMenuItems={profileMenuItems} totalAchievementPoints={totalAchievementPoints}/>
       <AchivementSnackbar achivement={achivement} open={open} />
       <Button onClick={handleAchivement} > test </Button>
-      <Player url={'src/assets/cash-register-fx_A_minor.wav'} />
+      <Player url={kaching} />
       <Suspense>
           <Routes>
             <Route path="/*" element={<AppRoutes setTotalAchievementPoints={setTotalAchievementPoints} />} />

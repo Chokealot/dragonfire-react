@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const useAudio: any = url => {
+const useAudio = (url: string) => {
   const [audio] = useState(new Audio(url));
   const [playing, setPlaying] = useState(false);
 
@@ -9,7 +9,7 @@ const useAudio: any = url => {
   useEffect(() => {
       playing ? audio.play() : audio.pause();
     },
-    [playing]
+    [playing, audio]
   );
 
   useEffect(() => {
@@ -17,13 +17,17 @@ const useAudio: any = url => {
     return () => {
       audio.removeEventListener('ended', () => setPlaying(false));
     };
-  }, []);
+  }, [audio]);
 
-  return [playing, toggle];
+  return {playing, toggle};
 };
 
-const Player = ({ url }) => {
-  const [playing, toggle] = useAudio(url);
+type IPlayerProps = {
+  url: string
+}
+
+const Player = (props: IPlayerProps) => {
+  const {playing, toggle} = useAudio(props.url);
 
   return (
     <div>
