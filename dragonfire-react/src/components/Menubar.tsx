@@ -38,7 +38,7 @@ const ResponsiveAppBar = (props: IAppBar) => {
     return (
         <AppBar position="static">
         <Container maxWidth="xl">
-            <Toolbar disableGutters>
+            <Toolbar sx={{ height: 128 }} disableGutters>
             <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} >
                 <img
                 src={DragonFireLogo}
